@@ -16,29 +16,49 @@ use Symfony\Component\Routing\Annotation\Route;
 // ma classe de controleur étend la classe de Symfony AbstractController
 // ça permet à ma classe de bénéficer des méthodes de la classe
 // AbstractController (c'est le système d'héritage en PHP)
-class HomeController extends AbstractController {
+class HomeController extends AbstractController
+{
+
+    private $articles = [
+        1 => [
+            'title' => 'Article 1',
+            'image' => 'https://www.music-covers-creations.com/wp-content/uploads/2019/10/Cr%C3%A9dit-Screenshot-Vid%C3%A9o-Vincent-Lagaf-Facebook.jpg'
+        ],
+        2 => [
+            'title' => 'Article 2',
+            'image' => 'https://cdn-elle.ladmedia.fr/var/plain_site/storage/images/societe/news/apres-sa-blague-sur-les-violences-conjugales-tex-ne-presentera-plus-les-z-amours-3590966/85241129-1-fre-FR/Apres-sa-blague-sur-les-violences-conjugales-Tex-ne-presentera-plus-les-Z-amours.jpg'
+        ],
+        3 => [
+            'title' => 'Article 3',
+            'image' => 'https://www.merci-maman.eu/wp-content/uploads/2020/03/Jean-Luc-Reichmann-800x445.jpg'
+        ],
+        4 => [
+            'title' => 'Article 4',
+            'image' => 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Mimie_Mathy_Cannes.jpg'
+        ],
+        5 => [
+            'title' => 'Article 5',
+            'image' => 'https://www.music-covers-creations.com/wp-content/uploads/2019/10/Cr%C3%A9dit-Screenshot-Vid%C3%A9o-Vincent-Lagaf-Facebook.jpg'
+        ],
+        6 => [
+            'title' => 'Article 6',
+            'image' => 'https://www.music-covers-creations.com/wp-content/uploads/2019/10/Cr%C3%A9dit-Screenshot-Vid%C3%A9o-Vincent-Lagaf-Facebook.jpg'
+        ],
+        7 => [
+            'title' => 'Article 7',
+            'image' => 'https://www.music-covers-creations.com/wp-content/uploads/2019/10/Cr%C3%A9dit-Screenshot-Vid%C3%A9o-Vincent-Lagaf-Facebook.jpg'
+        ],
+    ];
 
     /**
-     * @Route("/test2", name="home")
+     * @Route("/articles", name="articles_list")
      */
-    // Si je veux récupérer une instance de la classe de
-    // Symfony "Request", je peux la créer avec "new Request()"
-    // Mais aussi je peux utiliser le méchanisme "d'autowire'"
-    // de Symfony qui me permet de spécifier en parametre d'une méthode
-    // la classe à instancier + le nom d'une variable
-    // et symfony automatiquement va instancier la classe dans la variable
-    public function home(Request $request)
+    public function ArticlesList()
     {
-        // j'utilise l'instance de la classe Request
-        // pour récupérer le parametre d'url 'age'
-        // cette classe Request de Symfony sert uniquement à ça :
-        // récupérer des informations de la requête utilisateur (ip, url
-        // méthode, parametres etc)
-        $age = $request->query->get('age');
-
-        var_dump($age); die;
+        return $this->render("articles.html.twig", [
+            'articles' => $this->articles
+        ]);
     }
 
 }
-
 

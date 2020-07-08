@@ -1,0 +1,34 @@
+/* Permet d'avoir les bordures et les paddings à l'intérieur de l'élément. Par ex si un élément fait 25% et qu'on lui ajoute
+    un padding et une bordure, il fera toujours 25% grâce à cette propriété.
+*/
+* {
+    box-sizing: border-box;
+}
+
+/* j'utilise flex pour aligner mes éléments en grille, avec flex wrap pour éviter que la taille de l'élément ne soit recalculée */
+.articles-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* je mets chaque élément avec une taille de 25% pour qu'il fasse un quart de la page */
+.article {
+    width: 25%;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+/* je force le 100% à mes images pour éviter qu'elles ne dépassent en largeur de leur parent */
+.article-img {
+    width: 100%;
+}
+
+/* Dans le HTML j'ai utilisé la propriété css background-image pour pouvoir 'croper' mes images et les mettre
+    à la bonne taille sans les étirer. J'utilise en plus le background size cover pour que mon image prenne toute
+    la taille possible et background position pour placer mon image
+*/
+.article-bg-image {
+    height: 250px;
+    background-size: cover;
+    background-position: top center;
+}
