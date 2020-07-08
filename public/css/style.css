@@ -32,3 +32,18 @@
     background-size: cover;
     background-position: top center;
 }
+
+.logo-nav {
+    width: 100px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item-nav {
+    display: inline;
+    margin-right: 20px;
+}
