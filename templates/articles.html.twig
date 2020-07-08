@@ -1,14 +1,27 @@
-{% include 'header.html.twig' %}
+{% extends 'base.html.twig' %}
 
-<div class="articles-container">
-    {% for article in articles %}
-        <article class="article">
-            <div class="article-bg-image" style="
-                background-image: url('{{ article.image }}');
-            "></div>
-            <h2 class="article-title">{{ article.title }}</h2>
-        </article>
-    {% endfor %}
-</div>
+{% block content %}
 
-{% include 'footer.html.twig' %}
+    <div class="articles-container">
+
+        {# j'utilise le filtre Twig 'length' pour
+         calculer le nombre d'éléments dans mon tableau
+         et afficher un message d'erreur si je n'ai pas d'éléments
+         #}
+        {% if articles | length > 0 %}
+
+            {% for article in articles %}
+                <article class="article">
+                    <div class="article-bg-image" style="
+                        background-image: url('{{ article.image }}');
+                    "></div>
+                    <h2 class="article-title">{{ article.title }}</h2>
+                </article>
+            {% endfor %}
+
+        {% else %}
+            <h2>Il n'y a pas d'article !</h2>
+        {% endif %}
+    </div>
+
+{% endblock content %}
