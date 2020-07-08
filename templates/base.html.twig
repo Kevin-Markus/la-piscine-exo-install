@@ -1,3 +1,6 @@
+{# Je créé ma structure commune de page (le squelette de page qui
+ sera appliqué sur toutes les pages
+#}
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,6 +27,9 @@
     </nav>
 </header>
 
+{# Je définis dans mon squelette un block, qui me permet de
+    placer le contenu spécifique de chaque page
+#}
 {% block content %}
 {% endblock content %}
 
