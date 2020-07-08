@@ -1,7 +1,15 @@
-{% include 'header.html.twig' %}
+{# J'étends la base.html.twig pour récupérer sur mon fichier
+toute la structure commune et de venir mettre dans les
+block le contenu spécifique de ma page
+#}
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    {# je définis le contenu spécifique de ma page dans le block content #}
 
 <main>
     <p>Je suis la page d'accueil</p>
 </main>
 
-{% include 'footer.html.twig' %}
+{% endblock content %}
